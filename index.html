@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasa Burger</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="shortcut icon" href="icone/favicon_io/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/278760cac2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+    <div id="header__container">
+
+    <!-- Logo -->
+    <a href="#inicio" class="header__logo">
+      <img src="icone/favicon_io/favicon.ico" alt="Logo da Brasa Burguer" class="header__logo-img">
+      <span class="header__logo-text">Brasa Burguer</span>
+    </a>
+
+    <!-- Navegação -->
+    <nav class="header__nav" id="menu" aria-label="Navegação principal">
+      <ul class="header__list">
+        <li class="header__item"><a href="#inicio" class="header__link">Início</a></li>
+        <li class="header__item"><a href="#cardapio" class="header__link">Cardápio</a></li>
+        <li class="header__item"><a href="#pedidos" class="header__link">Meus pedidos</a></li>
+        <li class="header__item"><a href="#sobre" class="header__link">Sobre nós</a></li>
+        <li class="header__item"><a href="#localizacao" class="header__link">Localização</a></li>
+        <li class="header__item"><a href="#contato" class="header__link">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- Ações: dark mode + hambúrguer -->
+    <div class="header__actions">
+
+      <!-- Botão dark mode -->
+      <button class="header__theme" id="theme-toggle" type="button" aria-label="Alternar tema escuro">
+        <span class="header__theme-icon header__theme-icon--light" aria-hidden="true"><i class="fa-solid fa-sun"></i></span>
+        <span class="header__theme-icon header__theme-icon--dark" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
+      </button>
+
+      <!-- Botão hambúrguer (aparece só no celular) -->
+      <button class="header__toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Fundo escurecido atrás do menu lateral (celular) -->
+    <div class="header__overlay" id="menu-overlay"></div>
+
+  </div>
+</header>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
