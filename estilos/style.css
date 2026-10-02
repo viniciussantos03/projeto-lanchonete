@@ -254,13 +254,13 @@ header {
   transition: transform 0.35s ease, opacity 0.2s ease, top 0.35s ease;
 }
 
-.header__toggle-bar:nth-child(1) { top: calc(50% - 9.5px); }
-.header__toggle-bar:nth-child(2) { top: calc(50% - 1.5px); }
-.header__toggle-bar:nth-child(3) { top: calc(50% + 6.5px); }
+.header__toggle-bar:nth-child(1) { top: calc(50% - 9px); }
+.header__toggle-bar:nth-child(2) { top: calc(50% - 1px); }
+.header__toggle-bar:nth-child(3) { top: calc(50% + 7px); }
 
 /* Estado aberto: vira X (quem manda é o aria-expanded) */
 .header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(1) {
-  top: calc(50% - 1.5px);
+  top: calc(50% - 1px);
   transform: rotate(45deg);
 }
 
@@ -270,7 +270,7 @@ header {
 }
 
 .header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(3) {
-  top: calc(50% - 1.5px);
+  top: calc(50% - 1px);
   transform: rotate(-45deg);
 }
 
