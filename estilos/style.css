@@ -151,17 +151,18 @@ header {
 .header__logo-img {
   width: 36px;
   height: 36px;
-  object-fit: cover;
+  object-fit: contain;
   padding-bottom: 5px;
 }
 
 .header__logo-text {
   font-family: var(--fonte-titulo);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
+  padding-top: 3px;
 }
 
 /* Os botões viram itens diretos do grid */
