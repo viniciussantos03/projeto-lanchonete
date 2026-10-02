@@ -79,7 +79,7 @@ button {
   --cor-overlay: rgba(43, 26, 17, 0.55);
   --sombra: 0 4px 16px rgba(43, 26, 17, 0.12);
 
-    /* Header (fixo nos dois temas) */
+  /* Header (fixo nos dois temas) */
   --header-fundo: var(--amarelo-mostarda);
   --header-texto: var(--marrom-carvao);
   --header-hover: var(--marrom-carvao);
@@ -121,132 +121,6 @@ h1, h2, h3, h4 {
   letter-spacing: 0.5px;
 }
 
-.header__theme-icon--dark { display: none; }
-
-body.dark .header__theme-icon--light { display: none; }
-body.dark .header__theme-icon--dark  { display: inline-flex; }
-
-/* ===== HEADER (mobile first) ===== */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--header-fundo);
-  color: var(--header-texto);
-  box-shadow: var(--sombra);
-}
-
-#header__container {
-  display: grid;
-  grid-template-columns: 44px 1fr 44px;
-  grid-template-areas:
-    "toggle logo theme"
-    "nav    nav  nav";
-  align-items: center;
-  padding: 0.5rem 1rem;
-}
-
-/* Logo no meio */
-.header__logo {
-  grid-area: logo;
-  justify-self: center;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.header__logo-img {
-  width: 36px;
-  height: 36px;
-}
-
-.header__logo-text {
-  font-family: var(--fonte-titulo);
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  line-height: 1;
-  padding-top: 5px;
-}
-
-/* Ações (tema + hambúrguer) */
-.header__actions {
-  display: contents;
-}
-
-/* Navegação: linha própria embaixo, links em coluna */
-.header__nav {
-  order: 3;
-  flex-basis: 100%;
-  margin-top: 0.5rem;
-}
-
-.header__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.header__link {
-  display: block;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background-color var(--transicao),
-              color var(--transicao),
-              padding-left var(--transicao);
-}
-
-.header__link:hover,
-.header__link:focus-visible {
-  background-color: var(--header-hover);
-  color: var(--amarelo-mostarda);
-  padding-left: 1.5rem;
-}
-
-/* ===== BOTÃO DE TEMA ===== */
-.header__theme {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid var(--header-texto);
-  color: var(--header-texto);
-  font-size: 1.1rem;
-  overflow: hidden;
-  transition: background-color var(--transicao), color var(--transicao);
-}
-
-.header__theme:hover {
-  background-color: var(--header-hover);
-  color: var(--amarelo-mostarda);
-}
-
-/* Os dois ícones ficam empilhados e trocam com giro + fade */
-.header__theme-icon {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  transition: transform 0.4s ease, opacity 0.3s ease;
-}
-
-.header__theme-icon--dark {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.5);
-}
-
-body.dark .header__theme-icon--light {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.5);
-}
-
-body.dark .header__theme-icon--dark {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-
 /* ===== HEADER (mobile first) ===== */
 header {
   position: sticky;
@@ -286,6 +160,7 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
+  padding-top: 5px;
 }
 
 /* Os botões viram itens diretos do grid */
@@ -404,9 +279,8 @@ header {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid var(--header-texto);
   color: var(--header-texto);
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   overflow: hidden;
   transition: background-color var(--transicao), color var(--transicao);
 }
