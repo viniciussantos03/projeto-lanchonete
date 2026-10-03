@@ -56,7 +56,7 @@ button {
   --fonte-texto: "Poppins", sans-serif;
 
   /* Paleta da marca (fixa, não muda com o tema) */
-  --vermelho-brasa: #c8281e;
+  --vermelho-brasa: #a82a1c;
   --vermelho-brasa-escuro: #9e1d15;
   --vermelho-brasa-claro: #e5483c;
   --marrom-carvao: #2b1a11;
@@ -67,8 +67,10 @@ button {
 
   /* Variáveis de função (tema claro) */
   --cor-fundo: var(--creme-claro);
+  --cor-secao: #f8e8cc;
   --cor-fundo-alt: var(--creme-pao);
   --cor-superficie: #ffffff;
+  --cor-titulo: var(--marrom-carvao);
   --cor-texto: var(--marrom-carvao);
   --cor-texto-suave: var(--marrom-cafe);
   --cor-primaria: var(--vermelho-brasa);
@@ -92,8 +94,10 @@ button {
 /* ===== DARK MODE ===== */
 body.dark {
   --cor-fundo: #1a110c;
+  --cor-secao: #110a06;
   --cor-fundo-alt: #241812;
   --cor-superficie: #2e2019;
+  --cor-titulo: var(--vermelho-brasa-claro);
   --cor-texto: var(--creme-pao);
   --cor-texto-suave: #d9c3a5;
   --cor-primaria: var(--vermelho-brasa-claro);
@@ -314,4 +318,130 @@ body.dark .header__theme-icon--light {
 body.dark .header__theme-icon--dark {
   opacity: 1;
   transform: rotate(0) scale(1);
+}
+
+/* ===== HERO (mobile first) ===== */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* espaço entre as seções */
+  padding: 1rem;
+}
+
+main > section {
+  background-color: var(--cor-secao);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  scroll-margin-top: 5rem; /* o header sticky não esconde o título ao clicar no link */
+  transition: background-color var(--transicao);
+}
+
+.hero {
+  padding: 2rem 1.25rem 2.5rem;
+}
+
+.hero__titulo {
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  color: var(--cor-titulo);
+  text-align: center;
+}
+
+.hero__texto {
+  max-width: 900px;
+  margin: 1rem auto 2.5rem;
+  line-height: 1.8;
+  text-align: left;
+  color: var(--cor-texto-suave);
+}
+
+/* ===== CARROSSEL ===== */
+.carrossel {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  overflow: hidden; /* a "janela": só um slide aparece */
+}
+
+/* O trilho desliza conforme a variável --indice (o JS só muda ela) */
+.carrossel__trilho {
+  display: flex;
+  transform: translateX(calc(var(--indice, 0) * -100%));
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carrossel__slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* espaço lateral pras setas e embaixo pra sombra não ser cortada */
+  padding: 1.5rem 3.5rem 2rem;
+}
+
+.carrossel__img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+.carrossel__img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 22px 14px rgba(43, 26, 17, 0.45));
+  }
+  50% {
+    transform: translateY(-14px);
+    filter: drop-shadow(0 34px 20px rgba(43, 26, 17, 0.25));
+  }
+}
+
+.carrossel__nome {
+  margin-top: 1.5rem;
+  font-size: 1.9rem;
+  text-align: center;
+  color: var(--cor-texto);
+}
+
+/* Tracinho amarelo embaixo do nome, pro ar premium */
+.carrossel__nome::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 0.5rem auto 0;
+  border-radius: 3px;
+  background-color: var(--cor-destaque);
+}
+
+/* ===== SETAS ===== */
+.carrossel__seta {
+  position: absolute;
+  top: 40%;
+  z-index: 2; /* baixo de propósito: tem que ficar abaixo do header (100) */
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-sobre-primaria);
+  box-shadow: var(--sombra);
+  transform: translateY(-50%);
+  transition: background-color var(--transicao), transform var(--transicao);
+}
+
+.carrossel__seta--prev { left: 0.5rem; }
+.carrossel__seta--next { right: 0.5rem; }
+
+.carrossel__seta:hover,
+.carrossel__seta:focus-visible {
+  background-color: var(--cor-primaria-hover);
+  transform: translateY(-50%) scale(1.1);
 }
