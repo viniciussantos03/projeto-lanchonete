@@ -422,7 +422,7 @@ main > section {
 /* ===== SETAS ===== */
 .carrossel__seta {
   position: absolute;
-  top: 35%;
+  top: 33%;
   z-index: 2; /* baixo de propósito: tem que ficar abaixo do header (100) */
   display: grid;
   place-items: center;
