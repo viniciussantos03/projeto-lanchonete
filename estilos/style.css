@@ -325,7 +325,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.5rem; /* espaço entre as seções */
-  padding: 1rem;
+  padding: 10px;
 }
 
 main > section {
@@ -340,10 +340,15 @@ main > section {
   padding: 2rem 1.25rem 2.5rem;
 }
 
+.hero:focus {
+  outline: none;
+}
+
 .hero__titulo {
   font-size: clamp(2rem, 8vw, 2.8rem);
   color: var(--cor-titulo);
   text-align: center;
+  font-weight: 600;
 }
 
 .hero__texto {
@@ -376,12 +381,6 @@ main > section {
   align-items: center;
   /* espaço lateral pras setas e embaixo pra sombra não ser cortada */
   padding: 1.5rem 3.5rem 2rem;
-}
-
-.carrossel__img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
 }
 
 .carrossel__img {
@@ -423,7 +422,7 @@ main > section {
 /* ===== SETAS ===== */
 .carrossel__seta {
   position: absolute;
-  top: 40%;
+  top: 38%;
   z-index: 2; /* baixo de propósito: tem que ficar abaixo do header (100) */
   display: grid;
   place-items: center;

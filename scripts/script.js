@@ -70,3 +70,70 @@ temaToggle.addEventListener('click', () => {
 })
 
 temaSalvo()
+
+// Carrossel
+
+const hero = document.querySelector('.hero')
+
+const slides = document.querySelectorAll('.carrossel__slide')
+const carrosselSetaDireita = document.querySelector('#carrossel-next')
+const carrosselSetaEsquerda = document.querySelector('#carrossel-prev')
+const carrosselTrilho = document.querySelector('#carrossel-trilho')
+
+let indice = 0
+
+let animando = false
+
+function imagemSeguinte() {
+    if(animando === true) {
+        return
+    }
+
+    animando = true
+
+    if(indice >= 0 && indice < slides.length - 1) {
+        indice++
+        carrosselTrilho.style.setProperty('--indice', indice)
+    } else if (indice === slides.length - 1) {
+        indice = 0
+        carrosselTrilho.style.setProperty('--indice', indice)
+    }
+
+}
+
+function imagemAnterior() {
+    if(animando === true) {
+        return
+    }
+
+    animando = true
+
+    if(indice > 0 && indice < slides.length) {
+        indice--
+        carrosselTrilho.style.setProperty('--indice', indice)
+    } else if(indice === 0) {
+        indice = slides.length - 1
+        carrosselTrilho.style.setProperty('--indice', indice)
+    }
+}
+
+carrosselSetaDireita.addEventListener('click', () => {
+    imagemSeguinte()
+})
+
+carrosselTrilho.addEventListener('transitionend', () => {
+    animando = false
+})
+
+hero.addEventListener('keydown', (e) => {
+        if(e.key === 'ArrowRight') {
+            imagemSeguinte()
+        } 
+        if(e.key === 'ArrowLeft') {
+            imagemAnterior()
+        }
+    })
+
+carrosselSetaEsquerda.addEventListener('click', () => {
+    imagemAnterior()
+})
