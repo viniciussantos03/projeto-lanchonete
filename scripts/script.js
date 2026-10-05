@@ -121,8 +121,10 @@ carrosselSetaDireita.addEventListener('click', () => {
     imagemSeguinte()
 })
 
-carrosselTrilho.addEventListener('transitionend', () => {
-    animando = false
+carrosselTrilho.addEventListener('transitionend', (e) => {
+    if (e.target === carrosselTrilho && e.propertyName === 'transform') {
+        animando = false
+    }
 })
 
 hero.addEventListener('keydown', (e) => {
