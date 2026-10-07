@@ -475,6 +475,7 @@ main > section {
   gap: 1.25rem;
   max-width: 350px;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .equipe__card {
@@ -488,6 +489,11 @@ main > section {
   color: var(--creme-pao);
   box-shadow: var(--sombra);
   text-align: center;
+  transition: transform var(--transicao);
+}
+
+.equipe__card:hover {
+  transform: translateY(-5px);
 }
 
 .equipe__nome {
@@ -526,6 +532,7 @@ main > section {
   transition: transform 0.5s, box-shadow 0.5s;
 }
 
+
 .conheca__img:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 24px rgba(43, 26, 17, 0.25);
@@ -536,6 +543,7 @@ main > section {
   margin-top: 1.5rem;
   background-color: var(--header-fundo);
   color: var(--header-texto);
+  text-align: center;
 }
 
 .footer__container {
@@ -548,7 +556,7 @@ main > section {
 
 .footer__titulo {
   margin-bottom: 0.75rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .footer__lista {
@@ -563,17 +571,18 @@ main > section {
 .footer__link {
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: opacity var(--transicao);
+  transition: color var(--transicao);
 }
 
 .footer__link:hover,
 .footer__link:focus-visible {
-  opacity: 0.65;
+  color: var(--vermelho-brasa-escuro);
 }
 
 /* Redes: só ícones no celular */
 .footer__redes {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
@@ -614,4 +623,13 @@ main > section {
   border-top: 1px solid rgba(43, 26, 17, 0.25);
   font-size: 0.85rem;
   text-align: center;
+}
+
+.footer__copy a {
+  font-weight: bold;
+  transition: color var(--transicao);
+}
+
+.footer__copy a:hover {
+  color: var(--vermelho-brasa);
 }

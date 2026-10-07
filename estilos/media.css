@@ -1,0 +1,118 @@
+/* ===== TABLET (a partir de 768px) ===== */
+@media (min-width: 768px) {
+
+  /* Galeria: 4 imagens lado a lado */
+  .conheca__galeria {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 720px;
+  }
+
+  /* Footer em 3 colunas */
+  .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Redes: ícone + nome, em coluna, centralizadas embaixo do título */
+  .footer__redes {
+  display: grid;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.footer__rede {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  width: auto;
+  height: auto;
+  padding: 0.35rem 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--header-texto);
+  font-size: 1.1rem;
+}
+
+.footer__rede i {
+  width: 1.4rem;
+  text-align: center;
+}
+
+  .footer__rede:hover,
+  .footer__rede:focus-visible {
+    background-color: transparent;
+    color: var(--vermelho-brasa);
+    transform: translateY(0);
+  }
+
+  /* Mostra o nome (desfaz o "escondido" do mobile) */
+  .footer__rede-nome {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    font-size: 1rem;
+  }
+}
+
+/* ===== PC (a partir de 1024px) ===== */
+@media (min-width: 1024px) {
+
+  /* Header: logo à esquerda, links no meio/direita, tema na ponta */
+  #header__container {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo nav theme";
+    gap: 1.5rem;
+    padding: 0.5rem 2rem;
+  }
+
+  .header__logo {
+    justify-self: start;
+  }
+
+  /* Hambúrguer e overlay somem */
+  .header__toggle,
+  .header__overlay {
+    display: none;
+  }
+
+  /* A gaveta vira navegação normal */
+  .header__nav {
+    grid-area: nav;
+    justify-self: end;
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    overflow: visible;
+    transform: none;
+    visibility: visible;
+    transition: none;
+  }
+
+  /* Links na horizontal */
+  .header__list {
+    flex-direction: row;
+    gap: 0.25rem;
+  }
+
+  .header__link {
+    padding: 0.5rem 0.9rem;
+  }
+
+  /* O hover não precisa empurrar o texto na horizontal */
+  .header__link:hover,
+  .header__link:focus-visible {
+    padding-left: 0.9rem;
+  }
+
+  /* Cozinheiros lado a lado */
+  .equipe__cards {
+    grid-template-columns: 1fr 1fr;
+    max-width: 760px;
+  }
+}
