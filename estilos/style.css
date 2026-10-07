@@ -213,6 +213,7 @@ header {
               padding-left var(--transicao);
 }
 
+
 .header__link:hover,
 .header__link:focus-visible {
   background-color: var(--header-hover);
