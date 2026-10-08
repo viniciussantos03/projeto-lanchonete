@@ -39,6 +39,7 @@ menuLinks.forEach(link => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         fecharMenu()
+        fecharPedidos()
     }
 })
 
@@ -138,4 +139,31 @@ hero.addEventListener('keydown', (e) => {
 
 carrosselSetaEsquerda.addEventListener('click', () => {
     imagemAnterior()
+})
+
+// Área de pedidos
+
+const abrirCarrinho = document.querySelector('#carrinho-abrir')
+const carrinho = document.querySelector('#carrinho')
+
+const fecharCarrinho = document.querySelector('#carrinho-fechar')
+
+
+function abrirPedidos() {
+    fecharMenu()
+    carrinho.classList.add('is-open')
+    document.body.style.overflow = 'hidden'
+}
+
+function fecharPedidos() {
+    carrinho.classList.remove('is-open')
+    document.body.style.overflow = ''
+}
+
+abrirCarrinho.addEventListener('click', () => {
+    abrirPedidos()
+})
+
+fecharCarrinho.addEventListener('click', () => {
+    fecharPedidos()
 })

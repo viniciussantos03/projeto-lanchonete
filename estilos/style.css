@@ -213,7 +213,6 @@ header {
               padding-left var(--transicao);
 }
 
-
 .header__link:hover,
 .header__link:focus-visible {
   background-color: var(--header-hover);
@@ -633,4 +632,118 @@ main > section {
 
 .footer__copy a:hover {
   color: var(--vermelho-brasa);
+}
+
+/* ===== BOTÃO "MEUS PEDIDOS" NO MENU ===== */
+button.header__link {
+  width: 100%;
+  text-align: left;
+}
+
+/* ===== MODAL DO CARRINHO ===== */
+.carrinho {
+  position: fixed;
+  inset: 0;
+  z-index: 500; /* acima de header (100), gaveta (200) e hambúrguer (300) */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(2rem);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+}
+
+.carrinho.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s;
+}
+
+.carrinho__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: var(--header-fundo);
+  color: var(--header-texto);
+  box-shadow: var(--sombra);
+}
+
+.carrinho__titulo {
+  font-size: 1.8rem;
+}
+
+.carrinho__fechar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+.carrinho__fechar:hover,
+.carrinho__fechar:focus-visible {
+  background-color: var(--header-hover);
+  color: var(--amarelo-mostarda);
+}
+
+/* Só o corpo rola; topo e rodapé ficam sempre visíveis */
+.carrinho__corpo {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1rem;
+}
+
+.carrinho__vazio {
+  max-width: 34ch;
+  margin: 2rem auto;
+  text-align: center;
+  line-height: 1.8;
+  color: var(--cor-texto-suave);
+}
+
+.carrinho__lista {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.carrinho__rodape {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--cor-secao);
+  box-shadow: 0 -4px 16px rgba(43, 26, 17, 0.12);
+}
+
+.carrinho__total {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+.carrinho__finalizar {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0.9rem 1rem;
+  border-radius: var(--raio);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-sobre-primaria);
+  font-weight: 600;
+  transition: background-color var(--transicao);
+}
+
+.carrinho__finalizar:hover,
+.carrinho__finalizar:focus-visible {
+  background-color: var(--cor-primaria-hover);
 }

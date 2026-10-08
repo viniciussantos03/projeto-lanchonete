@@ -30,7 +30,8 @@
       <ul class="header__list">
         <li class="header__item"><a href="#inicio" class="header__link">Início</a></li>
         <li class="header__item"><a href="#cardapio" class="header__link">Cardápio</a></li>
-        <li class="header__item"><a href="#pedidos" class="header__link">Meus pedidos</a></li>
+        <li class="header__item"> <button type="button" class="header__link" id="carrinho-abrir" aria-haspopup="dialog">Meus pedidos</button>
+        </li>
         <li class="header__item"><a href="#sobre" class="header__link">Sobre nós</a></li>
         <li class="header__item"><a href="#equipe" class="header__link">Equipe</a></li>
         <li class="header__item"><a href="#conheca" class="header__link">Conheça</a></li>
@@ -230,6 +231,30 @@
     &copy; 2026 Criado por <a href="https://github.com/viniciussantos03" target="_blank" rel="noopener noreferrer">Vinicius</a> para Brasa Burguer. Todos os direitos reservados.
   </p>
 </footer>
+
+<!-- Modal do carrinho (tela cheia) -->
+  <div class="carrinho" id="carrinho" role="dialog" aria-modal="true" aria-labelledby="carrinho-titulo">
+
+  <div class="carrinho__topo">
+    <h2 class="carrinho__titulo" id="carrinho-titulo">Meus pedidos</h2>
+    <button class="carrinho__fechar" id="carrinho-fechar" type="button" aria-label="Fechar pedidos">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="carrinho__corpo">
+    <p class="carrinho__vazio" id="carrinho-vazio">Seu pedido está vazio. Que tal dar uma olhada no cardápio?</p>
+    <ul class="carrinho__lista" id="carrinho-lista">
+      <!-- os itens entram aqui via JS -->
+    </ul>
+  </div>
+
+  <div class="carrinho__rodape">
+    <p class="carrinho__total">Total <strong id="carrinho-total">R$ 0,00</strong></p>
+    <button class="carrinho__finalizar" id="carrinho-finalizar" type="button">Finalizar pedido</button>
+  </div>
+
+</div>
 
     <script src="scripts/script.js"></script>
 </body>
