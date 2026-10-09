@@ -329,7 +329,7 @@ main {
 
 main > section {
   background-color: var(--cor-secao);
-  border-radius: var(--raio);
+  border-radius: 20px;
   box-shadow: var(--sombra);
   scroll-margin-top: 5rem; /* o header sticky não esconde o título ao clicar no link */
   transition: background-color var(--transicao);

@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/media.css">
+    <link rel="stylesheet" href="estilos/cardapio.css">
 
     <script src="https://kit.fontawesome.com/278760cac2.js" crossorigin="anonymous"></script>
 
@@ -63,221 +64,381 @@
 
   <h1 class="cardapio__titulo">Cardápio</h1>
 
-  <!-- Janela: mostra uma categoria por vez (mesma lógica do carrossel) -->
-  <div class="cardapio__janela" id="cardapio-janela">
-
-    <!-- Trilho: as categorias ficam lado a lado, o JS desliza -->
-    <div class="cardapio__trilho" id="cardapio-trilho">
-
-      <!-- Categoria: Hambúrgueres -->
-      <section class="cardapio__categoria" id="cat-hamburgueres" aria-label="Hambúrgueres">
-        <h2 class="cardapio__categoria-titulo">Hambúrgueres</h2>
-
-        <div class="cardapio__colunas">
-
-          <!-- Coluna esquerda: itens 1 a 10 -->
-          <ul class="cardapio__lista">
-
-            <li class="cardapio__item" data-id="hamburguer-simples" data-preco="16.90">
-              <img src="images-hamburgueres/hamburguer-simples.png" alt="Hambúrguer Simples" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Hambúrguer Simples</h3>
-                <span class="cardapio__preco">R$ 16,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne na brasa e maionese da casa.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="x-salada" data-preco="19.90">
-              <img src="images-hamburgueres/x-salada.png" alt="Hambúrguer X-Salada" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">X-Salada</h3>
-                <span class="cardapio__preco">R$ 19,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, queijo, alface, tomate e maionese.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="x-burguer" data-preco="21.90">
-              <img src="images-hamburgueres/x-burguer.png" alt="Hambúrguer X-Burguer" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">X-Burguer</h3>
-                <span class="cardapio__preco">R$ 21,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne na brasa, queijo prato e molho especial.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="x-egg" data-preco="23.90">
-              <img src="images-hamburgueres/x-egg.png" alt="Hambúrguer X-Egg" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">X-Egg</h3>
-                <span class="cardapio__preco">R$ 23,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, queijo, ovo e maionese.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="x-frango" data-preco="24.90">
-              <img src="images-hamburgueres/x-frango.png" alt="Hambúrguer X-Frango" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">X-Frango</h3>
-                <span class="cardapio__preco">R$ 24,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, filé de frango grelhado, queijo, alface e tomate.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="burguer-cebola-crispy" data-preco="26.90">
-              <img src="images-hamburgueres/burguer-cebola-crispy.png" alt="Hambúrguer Burguer Cebola Crispy" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Burguer Cebola Crispy</h3>
-                <span class="cardapio__preco">R$ 26,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, queijo, cebola crocante e molho barbecue.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="x-bacon" data-preco="27.90">
-              <img src="images-hamburgueres/x-bacon.png" alt="Hambúrguer X-Bacon" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">X-Bacon</h3>
-                <span class="cardapio__preco">R$ 27,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne na brasa, queijo, bacon crocante e maionese.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="burguer-barbecue" data-preco="29.90">
-              <img src="images-hamburgueres/burguer-barbecue.png" alt="Hambúrguer Burguer Barbecue" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Burguer Barbecue</h3>
-                <span class="cardapio__preco">R$ 29,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, queijo, anéis de cebola e molho barbecue.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="burguer-calabresa" data-preco="30.90">
-              <img src="images-hamburgueres/burguer-calabresa.png" alt="Hambúrguer Burguer Calabresa" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Burguer Calabresa</h3>
-                <span class="cardapio__preco">R$ 30,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, calabresa acebolada, queijo e vinagrete.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="cheddar-simples" data-preco="32.90">
-              <img src="images-hamburgueres/cheddar-simples.png" alt="Hambúrguer Cheddar Simples" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Cheddar Simples</h3>
-                <span class="cardapio__preco">R$ 32,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne na brasa, creme de cheddar e cebola caramelizada.</p>
-            </li>
-
-          </ul>
-
-          <!-- Coluna direita: itens 11 a 20 -->
-          <ul class="cardapio__lista">
-
-            <li class="cardapio__item" data-id="burguer-picante" data-preco="33.90">
-              <img src="images-hamburgueres/burger-picante.png" alt="Hambúrguer Burguer Picante" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Burguer Picante</h3>
-                <span class="cardapio__preco">R$ 33,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, queijo pepper jack, jalapeño e molho picante.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="x-catupiry" data-preco="35.90">
-              <img src="images-hamburgueres/x-catupiry.png" alt="Hambúrguer X-Catupiry" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">X-Catupiry</h3>
-                <span class="cardapio__preco">R$ 35,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne na brasa, catupiry, bacon e cebola roxa.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="burguer-bacon-cheddar" data-preco="37.90">
-              <img src="images-hamburgueres/burguer-bacon-cheddar.png" alt="Hambúrguer Burguer Bacon Cheddar" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Burguer Bacon Cheddar</h3>
-                <span class="cardapio__preco">R$ 37,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, cheddar cremoso, bacon em cubos e maionese.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="cheddar-duplo" data-preco="39.90">
-              <img src="images-hamburgueres/cheddar-duplo.png" alt="Hambúrguer Cheddar Duplo" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Cheddar Duplo</h3>
-                <span class="cardapio__preco">R$ 39,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, dois hambúrgueres na brasa, cheddar duplo e cebola caramelizada.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="x-tudo" data-preco="41.90">
-              <img src="images-hamburgueres/x-tudo.png" alt="Hambúrguer X-Tudo" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">X-Tudo</h3>
-                <span class="cardapio__preco">R$ 41,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, carne, queijo, bacon, ovo, presunto, alface, tomate e maionese.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="duplo-bacon" data-preco="43.90">
-              <img src="images-hamburgueres/duplo-bacon.png" alt="Hambúrguer Duplo Bacon" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Duplo Bacon</h3>
-                <span class="cardapio__preco">R$ 43,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, dois hambúrgueres, queijo, bacon em dobro e molho especial.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="brasa-especial" data-preco="45.90">
-              <img src="images-hamburgueres/brasa-especial.png" alt="Hambúrguer Brasa Especial" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Brasa Especial</h3>
-                <span class="cardapio__preco">R$ 45,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão brioche, blend na brasa, queijo provolone, bacon e molho da casa.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="burguer-costela" data-preco="47.90">
-              <img src="images-hamburgueres/burguer-costela.png" alt="Hambúrguer Burguer Costela" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Burguer Costela</h3>
-                <span class="cardapio__preco">R$ 47,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão brioche, costela desfiada, queijo, cebola crispy e barbecue.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="triplo-brasa" data-preco="52.90">
-              <img src="images-hamburgueres/triplo-brasa.png" alt="Hambúrguer Triplo Brasa" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Triplo Brasa</h3>
-                <span class="cardapio__preco">R$ 52,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão, três hambúrgueres na brasa, triplo queijo, bacon e molho especial.</p>
-            </li>
-
-            <li class="cardapio__item" data-id="brasa-supremo" data-preco="56.90">
-              <img src="images-hamburgueres/brasa-supremo.png" alt="Hambúrguer Brasa Supremo" class="cardapio__img" loading="lazy">
-              <div class="cardapio__topo">
-                <h3 class="cardapio__nome">Brasa Supremo</h3>
-                <span class="cardapio__preco">R$ 56,90</span>
-              </div>
-              <p class="cardapio__ingredientes">Pão brioche, dois blends, costela, cheddar, bacon, ovo e molho secreto.</p>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-      <!-- Próximas categorias entram aqui, como outras <section class="cardapio__categoria"> -->
-
-    </div>
-  </div>
-
-  <!-- Botões de categoria (no fim do cardápio) -->
-  <nav class="cardapio__botoes" aria-label="Categorias do cardápio">
-    <button type="button" class="cardapio__botao is-active" data-alvo="0" aria-pressed="true">Hambúrgueres</button>
-    <!-- Próximos: <button type="button" class="cardapio__botao" data-alvo="1" aria-pressed="false">Bebidas</button> -->
+    <nav class="cardapio__botoes" aria-label="Categorias do cardápio">
+    <button type="button" class="cardapio__botao" aria-expanded="false" aria-controls="cat-hamburgueres">Hambúrgueres</button>
+    <button type="button" class="cardapio__botao" aria-expanded="false" aria-controls="cat-bebidas">Bebidas</button>
+    <button type="button" class="cardapio__botao" aria-expanded="false" aria-controls="cat-combos">Combos</button>
+    <button type="button" class="cardapio__botao" aria-expanded="false" aria-controls="cat-acompanhamentos">Acompanhamentos</button>
   </nav>
+
+  <!-- Hambúrgueres -->
+  <section class="cardapio__categoria" id="cat-hamburgueres" aria-label="Hambúrgueres">
+    <div class="cardapio__conteudo">
+      <ul class="cardapio__lista">
+
+        <li class="cardapio__item" data-id="hamburguer-simples" data-preco="16.90">
+          <img src="images-hamburgueres/hamburguer-simples.png" alt="Hambúrguer Simples" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Hambúrguer Simples</h3>
+            <span class="cardapio__preco">R$ 16,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne na brasa e maionese da casa.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Hambúrguer Simples do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Hambúrguer Simples ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="x-salada" data-preco="19.90">
+          <img src="images-hamburgueres/x-salada.png" alt="Hambúrguer X-Salada" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">X-Salada</h3>
+            <span class="cardapio__preco">R$ 19,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, queijo, alface, tomate e maionese.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover X-Salada do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar X-Salada ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="x-burguer" data-preco="21.90">
+          <img src="images-hamburgueres/x-burguer.png" alt="Hambúrguer X-Burguer" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">X-Burguer</h3>
+            <span class="cardapio__preco">R$ 21,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne na brasa, queijo prato e molho especial.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover X-Burguer do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar X-Burguer ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="x-egg" data-preco="23.90">
+          <img src="images-hamburgueres/x-egg.png" alt="Hambúrguer X-Egg" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">X-Egg</h3>
+            <span class="cardapio__preco">R$ 23,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, queijo, ovo e maionese.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover X-Egg Simples do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar X-Egg ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="x-frango" data-preco="24.90">
+          <img src="images-hamburgueres/x-frango.png" alt="Hambúrguer X-Frango" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">X-Frango</h3>
+            <span class="cardapio__preco">R$ 24,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, filé de frango grelhado, queijo, alface e tomate.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover X-Frango do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar X-Frango ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="burguer-cebola-crispy" data-preco="26.90">
+          <img src="images-hamburgueres/burguer-cebola-crispy.png" alt="Hambúrguer Burguer Cebola Crispy" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Burguer Cebola Crispy</h3>
+            <span class="cardapio__preco">R$ 26,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, queijo, cebola crocante e molho barbecue.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Burguer Cebola Crispy do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Burguer Cebola Crispy ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="x-bacon" data-preco="27.90">
+          <img src="images-hamburgueres/x-bacon.png" alt="Hambúrguer X-Bacon" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">X-Bacon</h3>
+            <span class="cardapio__preco">R$ 27,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne na brasa, queijo, bacon crocante e maionese.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover X-Bacon do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar X-Bacon ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="burguer-barbecue" data-preco="29.90">
+          <img src="images-hamburgueres/burguer-barbecue.png" alt="Hambúrguer Burguer Barbecue" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Burguer Barbecue</h3>
+            <span class="cardapio__preco">R$ 29,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, queijo, anéis de cebola e molho barbecue.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Burger Barbecue do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Burguer Barbecue ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="burguer-calabresa" data-preco="30.90">
+          <img src="images-hamburgueres/burguer-calabresa.png" alt="Hambúrguer Burguer Calabresa" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Burguer Calabresa</h3>
+            <span class="cardapio__preco">R$ 30,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, calabresa acebolada, queijo e vinagrete.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Burguer Calabresa do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Burguer Calabresa ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="cheddar-simples" data-preco="32.90">
+          <img src="images-hamburgueres/cheddar-simples.png" alt="Hambúrguer Cheddar Simples" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Cheddar Simples</h3>
+            <span class="cardapio__preco">R$ 32,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne na brasa, creme de cheddar e cebola caramelizada.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Cheddar Simples do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Cheddar Simples ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="burguer-picante" data-preco="33.90">
+          <img src="images-hamburgueres/burger-picante.png" alt="Hambúrguer Burguer Picante" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Burguer Picante</h3>
+            <span class="cardapio__preco">R$ 33,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, queijo pepper jack, jalapeño e molho picante.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Burguer Picantes do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Burguer Picante ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="x-catupiry" data-preco="35.90">
+          <img src="images-hamburgueres/x-catupiry.png" alt="Hambúrguer X-Catupiry" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">X-Catupiry</h3>
+            <span class="cardapio__preco">R$ 35,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne na brasa, catupiry, bacon e cebola roxa.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover X-Catupiry do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar X-Catupiry ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="burguer-bacon-cheddar" data-preco="37.90">
+          <img src="images-hamburgueres/burguer-bacon-cheddar.png" alt="Hambúrguer Burguer Bacon Cheddar" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Burguer Bacon Cheddar</h3>
+            <span class="cardapio__preco">R$ 37,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, cheddar cremoso, bacon em cubos e maionese.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Burger Bacon Cheddar do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Burguer Bacon Cheddar ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="cheddar-duplo" data-preco="39.90">
+          <img src="images-hamburgueres/cheddar-duplo.png" alt="Hambúrguer Cheddar Duplo" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Cheddar Duplo</h3>
+            <span class="cardapio__preco">R$ 39,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, dois hambúrgueres na brasa, cheddar duplo e cebola caramelizada.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Cheddar Duplo do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Cheddar Duplo ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="x-tudo" data-preco="41.90">
+          <img src="images-hamburgueres/x-tudo.png" alt="Hambúrguer X-Tudo" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">X-Tudo</h3>
+            <span class="cardapio__preco">R$ 41,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, carne, queijo, bacon, ovo, presunto, alface, tomate e maionese.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover X-tudo do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar X-Tudo ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="duplo-bacon" data-preco="43.90">
+          <img src="images-hamburgueres/duplo-bacon.png" alt="Hambúrguer Duplo Bacon" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Duplo Bacon</h3>
+            <span class="cardapio__preco">R$ 43,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, dois hambúrgueres, queijo, bacon em dobro e molho especial.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Duplo Bacon do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Duplo Bacon ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="brasa-especial" data-preco="45.90">
+          <img src="images-hamburgueres/brasa-especial.png" alt="Hambúrguer Brasa Especial" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Brasa Especial</h3>
+            <span class="cardapio__preco">R$ 45,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão brioche, blend na brasa, queijo provolone, bacon e molho da casa.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Brasa Especial do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Brasa Especial ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="burguer-costela" data-preco="47.90">
+          <img src="images-hamburgueres/burguer-costela.png" alt="Hambúrguer Burguer Costela" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Burguer Costela</h3>
+            <span class="cardapio__preco">R$ 47,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão brioche, costela desfiada, queijo, cebola crispy e barbecue.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Burguer Costela do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Burguer Costela ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="triplo-brasa" data-preco="52.90">
+          <img src="images-hamburgueres/triplo-brasa.png" alt="Hambúrguer Triplo Brasa" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Triplo Brasa</h3>
+            <span class="cardapio__preco">R$ 52,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão, três hambúrgueres na brasa, triplo queijo, bacon e molho especial.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Triplo Brasa do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Triplo Brasa ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="brasa-supremo" data-preco="56.90">
+          <img src="images-hamburgueres/brasa-supremo.png" alt="Hambúrguer Brasa Supremo" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Brasa Supremo</h3>
+            <span class="cardapio__preco">R$ 56,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Pão brioche, dois blends, costela, cheddar, bacon, ovo e molho secreto.</p>
+          <div class="cardapio__qtd">
+          <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Brasa Supremo do pedido" disabled>
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+          <span class="cardapio__qtd-num" aria-live="polite">0</span>
+          <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Brasa Supremo ao pedido">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
 
 </main>
 
@@ -342,6 +503,29 @@
     &copy; 2026 Criado por <a href="https://github.com/viniciussantos03" target="_blank" rel="noopener noreferrer">Vinicius</a> para Brasa Burguer. Todos os direitos reservados.
   </p>
 </footer>
+
+<div class="carrinho" id="carrinho" role="dialog" aria-modal="true" aria-labelledby="carrinho-titulo">
+
+  <div class="carrinho__topo">
+    <h2 class="carrinho__titulo" id="carrinho-titulo">Meus pedidos</h2>
+    <button class="carrinho__fechar" id="carrinho-fechar" type="button" aria-label="Fechar pedidos">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="carrinho__corpo">
+    <p class="carrinho__vazio" id="carrinho-vazio">Seu pedido está vazio. Que tal dar uma olhada no cardápio?</p>
+    <ul class="carrinho__lista" id="carrinho-lista">
+      <!-- os itens entram aqui via JS -->
+    </ul>
+  </div>
+
+  <div class="carrinho__rodape">
+    <p class="carrinho__total">Total <strong id="carrinho-total">R$ 0,00</strong></p>
+    <button class="carrinho__finalizar" id="carrinho-finalizar" type="button">Finalizar pedido</button>
+  </div>
+
+</div>
 
     <script src="scripts/script.js"></script>
 </body>

@@ -118,17 +118,22 @@ function imagemAnterior() {
     }
 }
 
-carrosselSetaDireita.addEventListener('click', () => {
-    imagemSeguinte()
-})
+if(carrosselSetaDireita){
+    carrosselSetaDireita.addEventListener('click', () => {
+        imagemSeguinte()
+    })
+}
 
-carrosselTrilho.addEventListener('transitionend', (e) => {
-    if (e.target === carrosselTrilho && e.propertyName === 'transform') {
-        animando = false
-    }
-})
+if(carrosselTrilho){
+    carrosselTrilho.addEventListener('transitionend', (e) => {
+        if (e.target === carrosselTrilho && e.propertyName === 'transform') {
+            animando = false
+        }
+    })
+}
 
-hero.addEventListener('keydown', (e) => {
+if(hero) {
+    hero.addEventListener('keydown', (e) => {
         if(e.key === 'ArrowRight') {
             imagemSeguinte()
         } 
@@ -136,10 +141,13 @@ hero.addEventListener('keydown', (e) => {
             imagemAnterior()
         }
     })
+}
 
+if(carrosselSetaEsquerda) {
 carrosselSetaEsquerda.addEventListener('click', () => {
     imagemAnterior()
 })
+}
 
 // Área de pedidos
 
@@ -166,4 +174,27 @@ abrirCarrinho.addEventListener('click', () => {
 
 fecharCarrinho.addEventListener('click', () => {
     fecharPedidos()
+})
+
+// cardapio 
+
+const cardapioTitulo = document.querySelector('.cardapio__titulo')
+const botoesSecoes = document.querySelector('.cardapio__botoes')
+const botaoSecao = document.querySelector('.cardapio__botao')
+const botoes = document.querySelectorAll('.cardapio__botoes button')
+const hamburgueres = document.querySelector('#cat-hamburgueres')
+
+function categorias() {
+    if(botoes[0]) {
+        hamburgueres.classList.add('is-open')
+        cardapioTitulo.textContent = 'Hambúrgueres'
+    }
+     botoesSecoes.classList.add('click')
+     botaoSecao.classList.add('click')
+}
+
+botoes.forEach((e) => {
+    e.addEventListener('click', () => {
+        categorias()
+    })
 })

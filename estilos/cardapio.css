@@ -1,0 +1,173 @@
+/* ===== CARDÁPIO (mobile first) ===== */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.cardapio {
+  padding: 1.5rem 10px 2rem;
+}
+
+.cardapio__titulo {
+  margin-bottom: 1.25rem;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  text-align: center;
+  color: var(--cor-titulo);
+}
+
+/* Botões das categorias */
+.cardapio__botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cardapio__botao {
+  padding: 0.9rem 0.5rem;
+  border-radius: 20px;
+  background-color: var(--vermelho-brasa);
+  box-shadow: var(--sombra);
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--creme-pao);
+  transition: background-color var(--transicao), color var(--transicao), transform var(--transicao);
+}
+
+.cardapio__botao:hover,
+.cardapio__botao:focus-visible {
+  transform: translateY(-3px);
+  background-color: var(--vermelho-brasa-escuro);
+}
+
+.cardapio__botao[aria-expanded="true"] {
+  background-color: var(--header-fundo);
+  color: var(--header-texto);
+}
+
+.cardapio__botoes.click, 
+.cardapio__botao.click {
+    display: none;
+}
+
+/* Categoria: desce e sobe */
+.cardapio__categoria {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.5s ease, visibility 0s linear 0.5s;
+}
+
+.cardapio__categoria.is-open {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.5s ease, visibility 0s;
+}
+
+.cardapio__conteudo {
+  overflow: hidden;
+}
+
+/* Lista: 2 colunas no celular, com mais espaço entre os itens */
+.cardapio__lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem 1rem;
+  padding: 1.5rem 10px 0.5rem; /* folga pra borda e sombra não serem cortadas */
+  cursor: pointer;
+}
+
+/* Cada hambúrguer */
+.cardapio__item {
+  padding: 0.7rem 0.6rem 0.9rem;
+  border: 2px solid transparent; /* já existe, só muda de cor: não dá "pulo" no hover */
+  border-radius: 20px;
+  background-color: var(--cor-secao);
+  box-shadow: var(--sombra);
+  transition: border-color 0.4s ease, background-color var(--transicao);
+}
+
+.cardapio__img {
+  width: 70%;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.cardapio__topo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 0.6rem;
+}
+
+.cardapio__nome {
+  font-size: 1.15rem;
+  color: var(--cor-titulo);
+}
+
+.cardapio__preco {
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.cardapio__ingredientes {
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  line-height: 1.45;
+  color: var(--cor-texto-suave);
+}
+.cardapio__qtd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background-color: var(--marrom-carvao);
+}
+
+.cardapio__qtd-btn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--amarelo-mostarda);
+  color: var(--marrom-carvao);
+  font-size: 0.8rem;
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+.cardapio__qtd-btn:hover:not(:disabled),
+.cardapio__qtd-btn:focus-visible {
+  transform: scale(1.1);
+}
+
+.cardapio__qtd-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cardapio__qtd-num {
+  min-width: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--creme-pao);
+}
+
+/* Borda vermelha no hover (só em dispositivos com mouse) */
+@media (hover: hover) {
+  .cardapio__item:hover {
+    border-color: var(--cor-primaria);
+  }
+}
