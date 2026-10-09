@@ -183,18 +183,24 @@ const botoesSecoes = document.querySelector('.cardapio__botoes')
 const botaoSecao = document.querySelector('.cardapio__botao')
 const botoes = document.querySelectorAll('.cardapio__botoes button')
 const hamburgueres = document.querySelector('#cat-hamburgueres')
+const bebidas = document.querySelector('#cat-bebidas')
 
-function categorias() {
-    if(botoes[0]) {
+function categorias(btn) {
+    if(btn === botoes[0]) {
         hamburgueres.classList.add('is-open')
         cardapioTitulo.textContent = 'Hambúrgueres'
+    } 
+    if (btn === botoes[1]) {
+        bebidas.classList.add('is-open')
+        cardapioTitulo.textContent = 'Bebidas'
     }
      botoesSecoes.classList.add('click')
      botaoSecao.classList.add('click')
 }
 
 botoes.forEach((e) => {
-    e.addEventListener('click', () => {
-        categorias()
+    e.addEventListener('click', (e) => {
+        categorias(e.currentTarget)
+        e.setAttribute('aria-expanded', 'true')
     })
 })

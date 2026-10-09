@@ -22,7 +22,7 @@
     <div id="header__container">
 
     <!-- Logo -->
-    <a href="#inicio" class="header__logo">
+    <a href="#" class="header__logo">
       <img src="icone/favicon_io/favicon.ico" alt="Logo da Brasa Burguer" class="header__logo-img">
       <span class="header__logo-text">Brasa Burguer</span>
     </a>
@@ -439,6 +439,177 @@
       </ul>
     </div>
   </section>
+
+  <!-- Bebidas -->
+<section class="cardapio__categoria" id="cat-bebidas" aria-label="Bebidas">
+  <div class="cardapio__conteudo">
+
+    <!-- Refrigerantes -->
+    <div class="cardapio__grupo">
+      <h2 class="cardapio__grupo-titulo">Refrigerantes</h2>
+      <ul class="cardapio__lista">
+
+        <li class="cardapio__item" data-id="guarana" data-preco="5.50">
+          <img src="images-bebidas/guarana.png" alt="Guaraná" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Guaraná</h3>
+            <span class="cardapio__preco">R$ 5,50</span>
+          </div>
+          <p class="cardapio__ingredientes">Lata 350 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Guaraná do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Guaraná ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="fanta-laranja" data-preco="5.50">
+          <img src="images-bebidas/fanta-laranja.png" alt="Fanta Laranja" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Fanta Laranja</h3>
+            <span class="cardapio__preco">R$ 5,50</span>
+          </div>
+          <p class="cardapio__ingredientes">Lata 350 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Fanta Laranja do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Fanta Laranja ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="sprite" data-preco="5.50">
+          <img src="images-bebidas/sprite.png" alt="Sprite" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Sprite</h3>
+            <span class="cardapio__preco">R$ 5,50</span>
+          </div>
+          <p class="cardapio__ingredientes">Lata 350 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Sprite do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Sprite ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="coca-cola" data-preco="6.00">
+          <img src="images-bebidas/coca-cola.png" alt="Coca-Cola" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Coca-Cola</h3>
+            <span class="cardapio__preco">R$ 6,00</span>
+          </div>
+          <p class="cardapio__ingredientes">Lata 350 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Coca-Cola do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Coca-Cola ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="coca-cola-zero" data-preco="6.00">
+          <img src="images-bebidas/coca-cola-zero.png" alt="Coca-Cola Zero" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Coca-Cola Zero</h3>
+            <span class="cardapio__preco">R$ 6,00</span>
+          </div>
+          <p class="cardapio__ingredientes">Lata 350 ml, sem açúcar.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Coca-Cola Zero do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Coca-Cola Zero ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Sucos -->
+    <div class="cardapio__grupo">
+      <h2 class="cardapio__grupo-titulo">Sucos</h2>
+      <ul class="cardapio__lista">
+
+        <li class="cardapio__item" data-id="suco-laranja" data-preco="8.00">
+          <img src="images-bebidas/suco-laranja.png" alt="Suco de laranja" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Suco de Laranja</h3>
+            <span class="cardapio__preco">R$ 8,00</span>
+          </div>
+          <p class="cardapio__ingredientes">Natural, copo de 400 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Suco de Laranja do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Suco de Laranja ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="suco-maracuja" data-preco="8.50">
+          <img src="images-bebidas/suco-maracuja.png" alt="Suco de maracujá" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Suco de Maracujá</h3>
+            <span class="cardapio__preco">R$ 8,50</span>
+          </div>
+          <p class="cardapio__ingredientes">Natural, copo de 400 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Suco de Maracujá do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Suco de Maracujá ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Outras bebidas -->
+    <div class="cardapio__grupo">
+      <h2 class="cardapio__grupo-titulo">Outras bebidas</h2>
+      <ul class="cardapio__lista">
+
+        <li class="cardapio__item" data-id="agua-mineral" data-preco="3.50">
+          <img src="images-bebidas/agua-mineral.png" alt="Água mineral" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Água Mineral</h3>
+            <span class="cardapio__preco">R$ 3,50</span>
+          </div>
+          <p class="cardapio__ingredientes">Garrafa 500 ml, sem gás.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Água Mineral do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Água Mineral ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="milk-shake-morango" data-preco="16.90">
+          <img src="images-bebidas/milk-shake-morango.png" alt="Milk shake de morango" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Milk Shake de Morango</h3>
+            <span class="cardapio__preco">R$ 16,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Sorvete, leite e calda de morango. 400 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Milk Shake de Morango do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Milk Shake de Morango ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+        <li class="cardapio__item" data-id="milk-shake-chocolate" data-preco="16.90">
+          <img src="images-bebidas/milk-shake-chocolate.png" alt="Milk shake de chocolate" class="cardapio__img" loading="lazy">
+          <div class="cardapio__topo">
+            <h3 class="cardapio__nome">Milk Shake de Chocolate</h3>
+            <span class="cardapio__preco">R$ 16,90</span>
+          </div>
+          <p class="cardapio__ingredientes">Sorvete, leite e calda de chocolate. 400 ml.</p>
+          <div class="cardapio__qtd">
+            <button type="button" class="cardapio__qtd-btn" data-acao="remover" aria-label="Remover Milk Shake de Chocolate do pedido" disabled><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <span class="cardapio__qtd-num" aria-live="polite">0</span>
+            <button type="button" class="cardapio__qtd-btn" data-acao="adicionar" aria-label="Adicionar Milk Shake de Chocolate ao pedido"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</section>
 
 </main>
 

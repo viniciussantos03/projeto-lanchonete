@@ -168,6 +168,25 @@ main {
   color: var(--creme-pao);
 }
 
+/* Título de cada grupo de bebidas */
+.cardapio__grupo-titulo {
+  margin-top: 1.75rem;
+  font-size: 1.6rem;
+  text-align: center;
+  color: var(--cor-titulo);
+}
+
+/* Mesmo tracinho mostarda dos nomes do carrossel */
+.cardapio__grupo-titulo::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 0.4rem auto 0;
+  border-radius: 3px;
+  background-color: var(--cor-destaque);
+}
+
 /* Borda vermelha no hover (só em dispositivos com mouse) */
 @media (hover: hover) {
   .cardapio__item:hover {
