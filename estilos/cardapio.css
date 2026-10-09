@@ -9,11 +9,11 @@ main {
 }
 
 .cardapio {
-  padding: 1.5rem 10px 2rem;
+  padding: 1.25rem 10px 2rem;
 }
 
 .cardapio__titulo {
-  margin-bottom: 1.25rem;
+  margin: 1.25rem 0rem;
   font-size: clamp(2rem, 8vw, 2.8rem);
   text-align: center;
   color: var(--cor-titulo);
@@ -86,6 +86,8 @@ main {
 
 /* Cada hambúrguer */
 .cardapio__item {
+  display: flex;
+  flex-direction: column;
   padding: 0.7rem 0.6rem 0.9rem;
   border: 2px solid transparent; /* já existe, só muda de cor: não dá "pulo" no hover */
   border-radius: 20px;
@@ -122,6 +124,7 @@ main {
 
 .cardapio__ingredientes {
   margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
   font-size: 0.7rem;
   line-height: 1.45;
   color: var(--cor-texto-suave);
@@ -130,7 +133,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.7rem;
+  margin-top: auto;
   padding: 0.25rem;
   border-radius: 999px;
   background-color: var(--marrom-carvao);
