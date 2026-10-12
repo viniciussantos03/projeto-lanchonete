@@ -180,7 +180,6 @@ fecharCarrinho.addEventListener('click', () => {
 
 const cardapioTitulo = document.querySelector('.cardapio__titulo')
 const botoesSecoes = document.querySelector('.cardapio__botoes')
-const botaoSecao = document.querySelector('.cardapio__botao')
 const botoes = document.querySelectorAll('.cardapio__botoes button')
 const hamburgueres = document.querySelector('#cat-hamburgueres')
 const bebidas = document.querySelector('#cat-bebidas')
@@ -191,28 +190,38 @@ function categorias(btn) {
     if(btn === botoes[0]) {
         hamburgueres.classList.add('is-open')
         cardapioTitulo.textContent = 'Hambúrgueres'
-    } 
+    } else {
+        hamburgueres.classList.remove('is-open')
+    }
+
     if(btn === botoes[1]) {
         bebidas.classList.add('is-open')
         cardapioTitulo.textContent = 'Bebidas'
+    } else {
+        bebidas.classList.remove('is-open')
     }
 
     if(btn === botoes[2]) {
         combos.classList.add('is-open')
         cardapioTitulo.textContent = 'Combos'
+    } else {
+        combos.classList.remove('is-open')
     }
 
     if(btn === botoes[3]) {
         acompanhamentos.classList.add('is-open')
         cardapioTitulo.textContent = 'Acompanhamentos'
+    } else {
+        acompanhamentos.classList.remove('is-open')
     }
      botoesSecoes.classList.add('click')
-     botaoSecao.classList.add('click')
 }
 
-botoes.forEach((e) => {
-    e.addEventListener('click', (e) => {
+botoes.forEach((botao) => {
+    botao.addEventListener('click', (e) => {
+        botoes.forEach((b) => {
+            b.setAttribute('aria-expanded', String(b === botao))
+        })
         categorias(e.currentTarget)
-        e.setAttribute('aria-expanded', 'true')
     })
 })
