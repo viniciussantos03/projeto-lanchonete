@@ -184,15 +184,27 @@ const botaoSecao = document.querySelector('.cardapio__botao')
 const botoes = document.querySelectorAll('.cardapio__botoes button')
 const hamburgueres = document.querySelector('#cat-hamburgueres')
 const bebidas = document.querySelector('#cat-bebidas')
+const combos = document.querySelector('#cat-combos')
+const acompanhamentos = document.querySelector('#cat-acompanhamentos')
 
 function categorias(btn) {
     if(btn === botoes[0]) {
         hamburgueres.classList.add('is-open')
         cardapioTitulo.textContent = 'Hambúrgueres'
     } 
-    if (btn === botoes[1]) {
+    if(btn === botoes[1]) {
         bebidas.classList.add('is-open')
         cardapioTitulo.textContent = 'Bebidas'
+    }
+
+    if(btn === botoes[2]) {
+        combos.classList.add('is-open')
+        cardapioTitulo.textContent = 'Combos'
+    }
+
+    if(btn === botoes[3]) {
+        acompanhamentos.classList.add('is-open')
+        cardapioTitulo.textContent = 'Acompanhamentos'
     }
      botoesSecoes.classList.add('click')
      botaoSecao.classList.add('click')
