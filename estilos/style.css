@@ -256,6 +256,11 @@ header {
 .header__toggle-bar:nth-child(2) { top: calc(50% - 1px); }
 .header__toggle-bar:nth-child(3) { top: calc(50% + 7px); }
 
+.cont-hamb {
+  display: inline;
+  margin-left: 3rem;
+}
+
 /* Estado aberto: vira X (quem manda é o aria-expanded) */
 .header__toggle[aria-expanded="true"] .header__toggle-bar:nth-child(1) {
   top: calc(50% - 1px);
@@ -289,6 +294,19 @@ header {
   background-color: var(--header-hover);
   color: var(--amarelo-mostarda);
 }
+
+.contador {
+  display: none;
+}
+
+.contador.click {
+  display: inline;
+  background-color: var(--vermelho-brasa);
+  color: var(--amarelo-mostarda);
+  padding: 3px 9px;
+  border-radius: 50%;
+}
+
 
 /* Os dois ícones ficam empilhados e trocam com giro + fade */
 .header__theme-icon {

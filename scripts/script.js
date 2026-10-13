@@ -5,6 +5,8 @@ const menuToggle = document.querySelector('#menu-toggle')
 const overlay = document.querySelector('#menu-overlay')
 const menuLinks = document.querySelectorAll('#menu a')
 
+const contadorMenu = document.querySelector('#menu-toggle .contador')
+
 function menuAberto() {
     menu.classList.toggle('is-open')
     overlay.classList.toggle('is-open')
@@ -14,12 +16,22 @@ function menuAberto() {
     } else {
         menuToggle.setAttribute('aria-expanded', 'false')
     }
+
+    if (menu.classList.contains('is-open')) {
+        contadorMenu.classList.remove('click')
+    } else if (Number(contadorMenu.textContent) > 0) {
+        contadorMenu.classList.add('click')
+    }
 }
 
 function fecharMenu() {
     menu.classList.remove('is-open')
     overlay.classList.remove('is-open')
     menuToggle.setAttribute('aria-expanded', 'false')
+
+    if(Number(contadorMenu.textContent) > 0) {
+        contadorMenu.classList.add('click')
+    }
 }
 
 menuToggle.addEventListener('click', () => {
@@ -223,5 +235,52 @@ botoes.forEach((botao) => {
             b.setAttribute('aria-expanded', String(b === botao))
         })
         categorias(e.currentTarget)
+    })
+})
+
+//adicionar no carrinho
+
+const boataoAdicionarRemover = document.querySelectorAll('.cardapio__qtd-btn')
+
+boataoAdicionarRemover.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        
+        const item = btn.closest('.cardapio__item')
+        const quantidade = item.querySelector('.cardapio__qtd-num')
+        const btnRemover = item.querySelector('[data-acao="remover"]')
+        const contador = document.querySelectorAll('.contador')
+
+        if(btn.getAttribute('data-acao') === 'adicionar') {
+            quantidade.textContent = Number(quantidade.textContent) + 1
+
+            if(Number(quantidade.textContent)) {
+            btnRemover.disabled = false
+        }
+
+        contador.forEach((event) => {
+            event.classList.add('click')
+            event.textContent = Number(event.textContent) + 1
+            if (Number(event.textContent) === 0) {
+                event.classList.remove('click')
+            }
+        })
+        } 
+
+        if(btn.getAttribute('data-acao') === 'remover' && Number(quantidade.textContent) >= 1){
+            quantidade.textContent = Number(quantidade.textContent) - 1
+
+            if(Number(quantidade.textContent) <= 0) {
+                btnRemover.disabled = true
+            }
+
+            contador.forEach((event) => {
+            event.classList.add('click')
+            event.textContent = Number(event.textContent) - 1
+            if (Number(event.textContent) === 0) {
+                event.classList.remove('click')
+            } 
+        })
+            
+        }
     })
 })
