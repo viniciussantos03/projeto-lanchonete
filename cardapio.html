@@ -905,6 +905,44 @@
     <p class="carrinho__vazio" id="carrinho-vazio">Seu pedido está vazio. Que tal dar uma olhada no cardápio?</p>
     <ul class="carrinho__lista" id="carrinho-lista">
       <!-- os itens entram aqui via JS -->
+       <template id="modelo-carrinho">
+        <li class="cardapio__item">
+          <img src="" alt="" class="cardapio__img">
+
+        <div class="cardapio__topo">
+          <h3 class="cardapio__nome"></h3>
+          <span class="cardapio__preco"></span>
+        </div>
+
+        <p class="cardapio__ingredientes"></p>
+
+        <div class="cardapio__qtd">
+          <button
+            type="button"
+            class="cardapio__qtd-btn"
+            data-acao="remover"
+            aria-label="Remover uma unidade"
+            disabled
+          >
+            <i class="fa-solid fa-minus" aria-hidden="true"></i>
+          </button>
+
+          <span class="cardapio__qtd-num" aria-live="polite">1</span>
+
+          <button
+            type="button"
+            class="cardapio__qtd-btn"
+            data-acao="adicionar"
+            aria-label="Adicionar uma unidade"
+          >
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          </div>
+
+          </li>
+        </template>
+
+
     </ul>
   </div>
 

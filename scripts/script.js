@@ -29,7 +29,7 @@ function fecharMenu() {
     overlay.classList.remove('is-open')
     menuToggle.setAttribute('aria-expanded', 'false')
 
-    if(Number(contadorMenu.textContent) > 0) {
+    if (Number(contadorMenu.dataset.count) > 0) {
         contadorMenu.classList.add('click')
     }
 }
@@ -242,6 +242,10 @@ botoes.forEach((botao) => {
 
 const boataoAdicionarRemover = document.querySelectorAll('.cardapio__qtd-btn')
 
+const carrinhoLista = document.querySelector('#carrinho-lista')
+
+
+
 boataoAdicionarRemover.forEach((btn) => {
     btn.addEventListener('click', () => {
         
@@ -258,12 +262,40 @@ boataoAdicionarRemover.forEach((btn) => {
         }
 
         contador.forEach((event) => {
-            event.classList.add('click')
-            event.textContent = Number(event.textContent) + 1
-            if (Number(event.textContent) === 0) {
-                event.classList.remove('click')
-            }
+            let total = Number(event.dataset.count || 0)
+
+            total++
+
+
+            event.dataset.count = total
+            event.textContent = total >= 100 ? '99+' : total
+
+            event.classList.toggle('click', total > 0)
         })
+
+        // jogar no carrinho
+
+        const template = document.querySelector('#modelo-carrinho')
+        const templateCopia = template.content.cloneNode(true)
+
+        const itemImagem = item.querySelector('.cardapio__img')
+        const itemNome = item.querySelector('.cardapio__nome').textContent
+        const itemPreco = item.querySelector('.cardapio__preco').textContent
+        const itemIngredientes = item.querySelector('.cardapio__ingredientes').textContent
+        const itemRemover = item.querySelector('[data-acao="remover"]').getAttribute('aria-label')
+        const itemAdicionar = item.querySelector('[data-acao="adicionar"]').getAttribute('aria-label')
+
+        templateCopia.querySelector('.cardapio__img').setAttribute('src', itemImagem.src)
+        templateCopia.querySelector('.cardapio__img').setAttribute('alt', itemImagem.alt)
+        templateCopia.querySelector('.cardapio__nome').textContent = itemNome
+        templateCopia.querySelector('.cardapio__preco').textContent = itemPreco
+        templateCopia.querySelector('.cardapio__ingredientes').textContent = itemIngredientes
+        templateCopia.querySelector('[data-acao="remover"]').setAttribute('aria-label', itemRemover)
+        templateCopia.querySelector('[data-acao="adicionar"]').setAttribute('aria-label', itemAdicionar)
+
+        carrinhoLista.appendChild(templateCopia)
+        
+
         } 
 
         if(btn.getAttribute('data-acao') === 'remover' && Number(quantidade.textContent) >= 1){
@@ -274,13 +306,18 @@ boataoAdicionarRemover.forEach((btn) => {
             }
 
             contador.forEach((event) => {
-            event.classList.add('click')
-            event.textContent = Number(event.textContent) - 1
-            if (Number(event.textContent) === 0) {
-                event.classList.remove('click')
-            } 
-        })
+                let total = Number(event.dataset.count || 0)
+
+                total--
+
+                event.dataset.count = total
+                event.textContent = total >= 100 ? '99+' : total
+
+                event.classList.toggle('click', total > 0)
+            })
             
         }
     })
 })
+
+
