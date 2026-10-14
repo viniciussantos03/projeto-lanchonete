@@ -258,7 +258,7 @@ header {
 
 .cont-hamb {
   display: inline;
-  margin-left: 3rem;
+  margin-left: 2.25rem;
 }
 
 /* Estado aberto: vira X (quem manda é o aria-expanded) */
