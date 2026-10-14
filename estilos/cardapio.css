@@ -208,6 +208,11 @@ main {
 }
 
 @media (min-width: 768px) {
+  .cardapio__categoria {
+    max-width: 900px;
+    margin: auto;
+  }
+
   .cardapio__lista {
     grid-template-columns: repeat(4, 1fr);
   }
