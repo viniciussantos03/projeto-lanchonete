@@ -70,7 +70,7 @@ button {
   --cor-secao: #f8e8cc;
   --cor-titulo: var(--marrom-carvao);
   --cor-texto: var(--marrom-carvao);
-  --cor-texto-suave: var(--marrom-cafe);
+  --cor-texto-suave: black;
   --cor-primaria: var(--vermelho-brasa);
   --cor-primaria-hover: var(--vermelho-brasa-escuro);
   --cor-destaque: var(--amarelo-mostarda);

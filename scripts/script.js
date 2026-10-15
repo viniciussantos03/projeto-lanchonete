@@ -289,10 +289,14 @@ function adicionarPedido(item) {
         const btnRemover = item.querySelector('[data-acao="remover"]')
         const contador = document.querySelectorAll('.contador')
 
+        const total = document.querySelector('#carrinho-total')
+        let preco = 0
+
         quantidade.textContent = Number(quantidade.textContent) + 1
 
         if(Number(quantidade.textContent)) {
             btnRemover.disabled = false
+        }
 
         contador.forEach((event) => {
             let total = Number(event.dataset.count || 0)
@@ -305,7 +309,7 @@ function adicionarPedido(item) {
 
             event.classList.toggle('click', total > 0)
 
-        })}
+        })
 
             // jogar no carrinho
 
@@ -327,6 +331,18 @@ function adicionarPedido(item) {
                 carrinhoLista.appendChild(itemCopia)
             }
 
+            carrinhoLista.querySelectorAll('.cardapio__item').forEach((e) => {
+                let precoLanches = Number(e.dataset.preco)
+                let qtdLanches = Number(e.querySelector('.cardapio__qtd-num').textContent)
+
+                precoLanches *= qtdLanches
+
+                preco += precoLanches
+
+            })
+            total.textContent = preco.toFixed(2)
+            localStorage.setItem('totalCarrinho', preco.toFixed(2))
+
             verificarProdutos(quantidade, nome)
 }
 
@@ -335,10 +351,17 @@ function removerPedido(item) {
         const btnRemover = item.querySelector('[data-acao="remover"]')
         const contador = document.querySelectorAll('.contador')
 
+        const total = document.querySelector('#carrinho-total')
+        let preco = 0
+
         quantidade.textContent = Number(quantidade.textContent) - 1
 
             if(Number(quantidade.textContent) <= 0) {
                 btnRemover.disabled = true
+
+                preco -= preco
+
+                total.textContent = preco
             }
 
             contador.forEach((event) => {
@@ -375,12 +398,24 @@ function removerPedido(item) {
                 carrinhoVazio.textContent = 'Seu pedido está vazio. Que tal dar uma olhada no cardápio?'
             }
 
+            carrinhoLista.querySelectorAll('.cardapio__item').forEach((e) => {
+                let precoLanches = Number(e.dataset.preco)
+                let qtdLanches = Number(e.querySelector('.cardapio__qtd-num').textContent)
+
+                precoLanches *= qtdLanches
+
+                preco += precoLanches
+
+            })
+            total.textContent = preco.toFixed(2)
+            localStorage.setItem('totalCarrinho', preco.toFixed(2))
+            
+
             verificarProdutos(quantidade, nome)
 }
 
 
 function verificarProdutos(quantidade, nome) {
-
     localStorage.setItem(nome, Number(quantidade.textContent));
 }
 
@@ -388,6 +423,8 @@ function proudtosSalvos(item, nome) {
     const quantidadeSalva = localStorage.getItem(nome)
     const quantidade = item.querySelector('.cardapio__qtd-num')
     const contador = document.querySelectorAll('.contador')
+
+    const totalCarrinho = localStorage.getItem('totalCarrinho')
 
     if(quantidadeSalva !== null) {
         quantidade.textContent = quantidadeSalva
@@ -420,7 +457,7 @@ function proudtosSalvos(item, nome) {
         event.classList.toggle('click', total > 0)
 })
 
-
+document.querySelector('#carrinho-total').textContent = totalCarrinho ?? '0.00'
 
 }
 
@@ -502,6 +539,10 @@ async function restaurarIndex() {
         contador.textContent = totalSalvo >= 100 ? '99+' : totalSalvo
         contador.classList.toggle('click', totalSalvo > 0)
     })
+
+    const totalCarrinho = localStorage.getItem('totalCarrinho')
+
+    document.querySelector('#carrinho-total').textContent = totalCarrinho ?? '0.00'
 }
 
 restaurarIndex()
