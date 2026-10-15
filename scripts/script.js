@@ -1,5 +1,6 @@
 // abrir menu
 
+
 const menu = document.querySelector('#menu')
 const menuToggle = document.querySelector('#menu-toggle')
 const overlay = document.querySelector('#menu-overlay')
@@ -263,7 +264,7 @@ boataoAdicionarRemover.forEach((btn) => {
         if(btn.getAttribute('data-acao') === 'remover' && Number(quantidade.textContent) >= 1) {
             removerPedido(item, btn)
         }
-})
+})})
 
 carrinhoLista.addEventListener('click', (evento) => {
     const btn = evento.target.closest('.cardapio__qtd-btn')
@@ -282,7 +283,7 @@ carrinhoLista.addEventListener('click', (evento) => {
         }
 })
 
-function adicionarPedido(item, btn) {
+function adicionarPedido(item) {
 
         const quantidade = item.querySelector('.cardapio__qtd-num')
         const btnRemover = item.querySelector('[data-acao="remover"]')
@@ -313,23 +314,23 @@ function adicionarPedido(item, btn) {
             
             const produtoExistente = [...carrinhoLista.querySelectorAll('.cardapio__item')].find(produto => produto.querySelector('.cardapio__nome').textContent === nome)
 
-            if(produtoExistente) {
-                itemCopia.textContent = ''
-                produtoExistente.querySelector('.cardapio__qtd-num').textContent = quantidade.textContent
+            const produtoCardapio = [...document.querySelectorAll('.cardapio__item')]
+            .find(produto => produto.querySelector('.cardapio__nome').textContent === nome)
 
-                if(Number(quantidade.textContent) <= 0) {
-                    produtoExistente.remove()
-                }
+            if(produtoExistente) {
+                const produtoQuantidade = produtoExistente.querySelector('.cardapio__qtd-num')
+
+                produtoQuantidade.textContent = quantidade.textContent
+
+                produtoCardapio.querySelector('.cardapio__qtd-num').textContent = quantidade.textContent
             } else {
                 carrinhoLista.appendChild(itemCopia)
             }
 
-            if(carrinhoLista.children.length === 0) {
-                carrinhoVazio.textContent = 'Seu pedido está vazio. Que tal dar uma olhada no cardápio?'
-            }
+            verificarProdutos(quantidade, nome)
 }
 
-function removerPedido(item, btn) {
+function removerPedido(item) {
         const quantidade = item.querySelector('.cardapio__qtd-num')
         const btnRemover = item.querySelector('[data-acao="remover"]')
         const contador = document.querySelectorAll('.contador')
@@ -351,24 +352,156 @@ function removerPedido(item, btn) {
                 event.classList.toggle('click', total > 0)
             })
 
-            const itemCopia = item.cloneNode(true)
-            const nome = itemCopia.querySelector('.cardapio__nome').textContent
+            const nome = item.querySelector('.cardapio__nome').textContent
             
             const produtoExistente = [...carrinhoLista.querySelectorAll('.cardapio__item')].find(produto => produto.querySelector('.cardapio__nome').textContent === nome)
 
+            const produtoCardapio = [...document.querySelectorAll('.cardapio__item')]
+            .find(produto => produto.querySelector('.cardapio__nome').textContent === nome)
+
             if(produtoExistente) {
-                itemCopia.textContent = ''
-                produtoExistente.querySelector('.cardapio__qtd-num').textContent = quantidade.textContent
+                const produtoQuantidade = produtoExistente.querySelector('.cardapio__qtd-num')
+
+                produtoQuantidade.textContent = quantidade.textContent
+
+                produtoCardapio.querySelector('.cardapio__qtd-num').textContent = quantidade.textContent
 
                 if(Number(quantidade.textContent) <= 0) {
                     produtoExistente.remove()
             }
-            } else {
-                carrinhoLista.appendChild(itemCopia)
             }
 
             if(carrinhoLista.children.length === 0) {
                 carrinhoVazio.textContent = 'Seu pedido está vazio. Que tal dar uma olhada no cardápio?'
             }
+
+            verificarProdutos(quantidade, nome)
+}
+
+
+function verificarProdutos(quantidade, nome) {
+
+    localStorage.setItem(nome, Number(quantidade.textContent));
+}
+
+function proudtosSalvos(item, nome) {
+    const quantidadeSalva = localStorage.getItem(nome)
+    const quantidade = item.querySelector('.cardapio__qtd-num')
+    const contador = document.querySelectorAll('.contador')
+
+    if(quantidadeSalva !== null) {
+        quantidade.textContent = quantidadeSalva
+    } else {
+        quantidade.textContent = '0'
     }
+
+    if(Number(quantidade.textContent) > 0) {
+        carrinhoVazio.textContent = ''
+
+        const itemCopia = item.cloneNode(true)
+        const quantidadeCopia = itemCopia.querySelector('.cardapio__qtd-num')
+
+        const btnRemover = itemCopia.querySelector('[data-acao="remover"]')
+
+        quantidadeCopia.textContent = quantidadeSalva
+        btnRemover.disabled = false
+
+        carrinhoLista.appendChild(itemCopia)
+    }
+
+    contador.forEach((event) => {
+        let total = Number(event.dataset.count || 0)
+
+        total += Number(quantidade.textContent)
+
+        event.dataset.count = total
+        event.textContent = total >= 100 ? '99+' : total
+
+        event.classList.toggle('click', total > 0)
 })
+
+
+
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const itens = document.querySelectorAll('.cardapio__categoria .cardapio__item')
+
+  itens.forEach((item) => {
+    const quantidade = item.querySelector('.cardapio__qtd-num')
+
+    const btnRemover = item.querySelector('[data-acao="remover"]')
+
+    const nome = item.querySelector('.cardapio__nome').textContent
+
+    proudtosSalvos(item, nome)
+
+    if(Number(quantidade.textContent) >= 1) {
+        btnRemover.disabled = false
+    } else {
+        btnRemover.disabled = true
+    }
+  })
+})
+
+const contadores = document.querySelectorAll('.contador')
+const paginaIndex = !document.querySelector('.cardapio__categoria')
+
+let totalSalvo = 0
+if(paginaIndex){
+for (let i = 0; i < localStorage.length; i++) {
+
+    const chave = localStorage.key(i)
+
+    if (chave !== 'tema') {
+        totalSalvo += Number(localStorage.getItem(chave)) || 0
+    }
+}
+
+contadores.forEach((contador) => {
+    contador.dataset.count = totalSalvo
+    contador.textContent = totalSalvo >= 100 ? '99+' : totalSalvo
+    contador.classList.toggle('click', totalSalvo > 0)
+})}
+
+
+async function restaurarIndex() {
+    if (!paginaIndex) return
+
+    const resposta = await fetch('cardapio.html')
+    const html = await resposta.text()
+    const documento = new DOMParser().parseFromString(html, 'text/html')
+
+    const itens = documento.querySelectorAll(
+        '.cardapio__categoria .cardapio__item'
+    )
+
+    let totalSalvo = 0
+
+    itens.forEach((item) => {
+        const nome = item.querySelector('.cardapio__nome').textContent.trim()
+        const quantidadeSalva = Number(localStorage.getItem(nome)) || 0
+
+        totalSalvo += quantidadeSalva
+
+        if (quantidadeSalva > 0) {
+            const copia = item.cloneNode(true)
+            const quantidade = copia.querySelector('.cardapio__qtd-num')
+            const btnRemover = copia.querySelector('[data-acao="remover"]')
+
+            quantidade.textContent = quantidadeSalva
+            btnRemover.disabled = false
+
+            carrinhoVazio.textContent = ''
+            carrinhoLista.appendChild(copia)
+        }
+    })
+
+    contadores.forEach((contador) => {
+        contador.dataset.count = totalSalvo
+        contador.textContent = totalSalvo >= 100 ? '99+' : totalSalvo
+        contador.classList.toggle('click', totalSalvo > 0)
+    })
+}
+
+restaurarIndex()
