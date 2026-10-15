@@ -275,25 +275,9 @@ boataoAdicionarRemover.forEach((btn) => {
 
         // jogar no carrinho
 
-        const template = document.querySelector('#modelo-carrinho')
-        const templateCopia = template.content.cloneNode(true)
+        const itemCopia = item.cloneNode(true)
 
-        const itemImagem = item.querySelector('.cardapio__img')
-        const itemNome = item.querySelector('.cardapio__nome').textContent
-        const itemPreco = item.querySelector('.cardapio__preco').textContent
-        const itemIngredientes = item.querySelector('.cardapio__ingredientes').textContent
-        const itemRemover = item.querySelector('[data-acao="remover"]').getAttribute('aria-label')
-        const itemAdicionar = item.querySelector('[data-acao="adicionar"]').getAttribute('aria-label')
-
-        templateCopia.querySelector('.cardapio__img').setAttribute('src', itemImagem.src)
-        templateCopia.querySelector('.cardapio__img').setAttribute('alt', itemImagem.alt)
-        templateCopia.querySelector('.cardapio__nome').textContent = itemNome
-        templateCopia.querySelector('.cardapio__preco').textContent = itemPreco
-        templateCopia.querySelector('.cardapio__ingredientes').textContent = itemIngredientes
-        templateCopia.querySelector('[data-acao="remover"]').setAttribute('aria-label', itemRemover)
-        templateCopia.querySelector('[data-acao="adicionar"]').setAttribute('aria-label', itemAdicionar)
-
-        carrinhoLista.appendChild(templateCopia)
+        carrinhoLista.appendChild(itemCopia)
         
 
         } 
