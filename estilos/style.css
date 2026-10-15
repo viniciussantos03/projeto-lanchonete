@@ -811,8 +811,8 @@ button.header__link {
   /* limita a 2 linhas pra todos os itens terem altura parecida */
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
   overflow: hidden;
   -webkit-box-orient: vertical;
   overflow: hidden;
