@@ -112,6 +112,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-size: 0.75em;
 }
 
 #carrinho-lista .cardapio__qtd {

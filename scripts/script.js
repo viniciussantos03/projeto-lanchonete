@@ -244,22 +244,54 @@ const boataoAdicionarRemover = document.querySelectorAll('.cardapio__qtd-btn')
 
 const carrinhoLista = document.querySelector('#carrinho-lista')
 
+const carrinhoVazio  = document.querySelector('#carrinho-vazio')
 
 
 boataoAdicionarRemover.forEach((btn) => {
     btn.addEventListener('click', () => {
-        
+
+        carrinhoVazio.textContent = ''
+
         const item = btn.closest('.cardapio__item')
+
+        if(btn.getAttribute('data-acao') === 'adicionar') {
+            adicionarPedido(item, btn)
+        }
+
+        const quantidade = item.querySelector('.cardapio__qtd-num')
+
+        if(btn.getAttribute('data-acao') === 'remover' && Number(quantidade.textContent) >= 1) {
+            removerPedido(item, btn)
+        }
+})
+
+carrinhoLista.addEventListener('click', (evento) => {
+    const btn = evento.target.closest('.cardapio__qtd-btn')
+
+    if(!btn) return
+
+    const item = btn.closest('.cardapio__item')
+    const quantidade = item.querySelector('.cardapio__qtd-num')
+
+        if(btn.getAttribute('data-acao') === 'adicionar') {
+            adicionarPedido(item, btn)
+        }
+
+        if(btn.getAttribute('data-acao') === 'remover' && Number(quantidade.textContent) >= 1) {
+            removerPedido(item, btn)
+        }
+})
+
+function adicionarPedido(item, btn) {
+
         const quantidade = item.querySelector('.cardapio__qtd-num')
         const btnRemover = item.querySelector('[data-acao="remover"]')
         const contador = document.querySelectorAll('.contador')
 
-        if(btn.getAttribute('data-acao') === 'adicionar') {
-            quantidade.textContent = Number(quantidade.textContent) + 1
+        quantidade.textContent = Number(quantidade.textContent) + 1
 
-            if(Number(quantidade.textContent)) {
+        if(Number(quantidade.textContent)) {
             btnRemover.disabled = false
-        }
 
         contador.forEach((event) => {
             let total = Number(event.dataset.count || 0)
@@ -271,19 +303,38 @@ boataoAdicionarRemover.forEach((btn) => {
             event.textContent = total >= 100 ? '99+' : total
 
             event.classList.toggle('click', total > 0)
-        })
 
-        // jogar no carrinho
+        })}
 
-        const itemCopia = item.cloneNode(true)
+            // jogar no carrinho
 
-        carrinhoLista.appendChild(itemCopia)
-        
+            const itemCopia = item.cloneNode(true)
+            const nome = itemCopia.querySelector('.cardapio__nome').textContent
+            
+            const produtoExistente = [...carrinhoLista.querySelectorAll('.cardapio__item')].find(produto => produto.querySelector('.cardapio__nome').textContent === nome)
 
-        } 
+            if(produtoExistente) {
+                itemCopia.textContent = ''
+                produtoExistente.querySelector('.cardapio__qtd-num').textContent = quantidade.textContent
 
-        if(btn.getAttribute('data-acao') === 'remover' && Number(quantidade.textContent) >= 1){
-            quantidade.textContent = Number(quantidade.textContent) - 1
+                if(Number(quantidade.textContent) <= 0) {
+                    produtoExistente.remove()
+                }
+            } else {
+                carrinhoLista.appendChild(itemCopia)
+            }
+
+            if(carrinhoLista.children.length === 0) {
+                carrinhoVazio.textContent = 'Seu pedido está vazio. Que tal dar uma olhada no cardápio?'
+            }
+}
+
+function removerPedido(item, btn) {
+        const quantidade = item.querySelector('.cardapio__qtd-num')
+        const btnRemover = item.querySelector('[data-acao="remover"]')
+        const contador = document.querySelectorAll('.contador')
+
+        quantidade.textContent = Number(quantidade.textContent) - 1
 
             if(Number(quantidade.textContent) <= 0) {
                 btnRemover.disabled = true
@@ -299,9 +350,25 @@ boataoAdicionarRemover.forEach((btn) => {
 
                 event.classList.toggle('click', total > 0)
             })
+
+            const itemCopia = item.cloneNode(true)
+            const nome = itemCopia.querySelector('.cardapio__nome').textContent
             
-        }
-    })
+            const produtoExistente = [...carrinhoLista.querySelectorAll('.cardapio__item')].find(produto => produto.querySelector('.cardapio__nome').textContent === nome)
+
+            if(produtoExistente) {
+                itemCopia.textContent = ''
+                produtoExistente.querySelector('.cardapio__qtd-num').textContent = quantidade.textContent
+
+                if(Number(quantidade.textContent) <= 0) {
+                    produtoExistente.remove()
+            }
+            } else {
+                carrinhoLista.appendChild(itemCopia)
+            }
+
+            if(carrinhoLista.children.length === 0) {
+                carrinhoVazio.textContent = 'Seu pedido está vazio. Que tal dar uma olhada no cardápio?'
+            }
+    }
 })
-
-
