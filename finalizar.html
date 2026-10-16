@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar pedido | Brasa Burger</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="icone/favicon_io/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/cardapio.css">
+    <link rel="stylesheet" href="estilos/finalizar.css">
+    <link rel="stylesheet" href="estilos/media.css">
+
+    <script src="https://kit.fontawesome.com/278760cac2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <main class="finalizar">
+
+    <!-- Topo: título e X pra voltar -->
+    <div class="finalizar__topo">
+      <h1 class="finalizar__titulo">Finalizar pedido</h1>
+      <button class="finalizar__voltar" aria-label="Voltar">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Resumo do pedido -->
+    <section class="finalizar__bloco" aria-labelledby="resumo-titulo">
+      <h2 class="finalizar__subtitulo" id="resumo-titulo">Seu pedido</h2>
+
+      <ul class="finalizar__lista" id="finalizar-lista">
+        <!-- os itens entram aqui via JS -->
+      </ul>
+
+      <p class="finalizar__total">Total <strong id="finalizar-total">R$ 0,00</strong></p>
+    </section>
+
+    <!-- Dados de entrega + envio -->
+    <form class="finalizar__bloco" id="finalizar-form">
+      <h2 class="finalizar__subtitulo">Endereço de entrega</h2>
+
+      <div class="finalizar__campo">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
+      </div>
+
+      <div class="finalizar__campo">
+        <label for="rua">Rua</label>
+        <input type="text" id="rua" name="rua" autocomplete="address-line1" required>
+      </div>
+
+      <div class="finalizar__campo">
+        <label for="numero">Número</label>
+        <input type="text" id="numero" name="numero" inputmode="numeric" required>
+      </div>
+
+      <div class="finalizar__campo">
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" name="bairro" required>
+      </div>
+
+      <div class="finalizar__campo">
+        <label for="referencia">Ponto de referência <span>(opcional)</span></label>
+        <input type="text" id="referencia" name="referencia">
+      </div>
+
+      <button type="submit" class="finalizar__enviar" id="finalizar-enviar">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        Enviar pedido pelo WhatsApp
+      </button>
+    </form>
+
+  </main>
+
+  <script src="scripts/finalizar.js"></script>
+</body>
+</html>

@@ -461,6 +461,16 @@ document.querySelector('#carrinho-total').textContent = totalCarrinho ?? '0.00'
 
 }
 
+// area finalizar 
+
+const carrinhoFinalizar = document.querySelector('#carrinho-finalizar')
+
+console.log(carrinhoFinalizar)
+
+carrinhoFinalizar.addEventListener('click', () => {
+    window.location.href = 'finalizar.html'
+})
+
 document.addEventListener('DOMContentLoaded', () => {
   const itens = document.querySelectorAll('.cardapio__categoria .cardapio__item')
 
