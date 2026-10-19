@@ -1,40 +1,171 @@
+/* ===== FINALIZAR PEDIDO (mobile first) ===== */
+.finalizar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 100vh;
+  padding: 1.75rem 1rem;
+}
+
+/* Topo: título centralizado e X na direita */
 .finalizar__topo {
-    display: flex;
-    position: relative;
-    padding-top: 1.75rem;
-    justify-content: space-between;
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  padding-top: 1.75rem;
 }
 
 .finalizar__topo .finalizar__titulo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-bottom: 1.75rem;
-    color: var(--cor-titulo);
-    white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 1.75rem;
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+  color: var(--cor-titulo);
+  white-space: nowrap;
 }
 
 .finalizar__topo .finalizar__voltar {
-    transform: translateY(-4px);
-    font-size: 1.75rem;
-    margin-left: auto;
-    margin-right: 10px;
-    color: var(--cor-titulo);
+  transform: translateY(-4px);
+  font-size: 1.75rem;
+  margin-left: auto;
+  margin-right: 10px;
+  color: var(--cor-titulo);
+  transition: color var(--transicao), transform var(--transicao);
+}
+
+.finalizar__topo .finalizar__voltar:hover,
+.finalizar__topo .finalizar__voltar:focus-visible {
+  color: var(--cor-primaria);
+  transform: translateY(-4px) scale(1.15);
+}
+
+/* Cada bloco (resumo e formulário) com o mesmo visual das seções */
+.finalizar__bloco {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 2.5rem;
+  padding: 2rem 1.25rem;
+  border-radius: var(--raio);
+  background-color: var(--cor-secao);
+  box-shadow: var(--sombra);
 }
 
 .finalizar__bloco .finalizar__subtitulo {
-    color: var(--cor-titulo);
+  font-size: 1.7rem;
+  color: var(--cor-titulo);
 }
 
-.finalizar__bloco .finalizar__subtitulo, .finalizar__bloco .finalizar__lista, .finalizar__bloco .finalizar__total{ 
-    text-align: center;
-    padding: 10px 0px;
+.finalizar__bloco .finalizar__subtitulo,
+.finalizar__bloco .finalizar__lista,
+.finalizar__bloco .finalizar__total {
+  text-align: center;
+  padding: 10px 0;
 }
 
-.finalizar__bloco .finalizar__lista, .finalizar__bloco .finalizar__total {
-    color: var(--cor-texto-suave);
+.finalizar__bloco .finalizar__lista,
+.finalizar__bloco .finalizar__total {
+  color: var(--cor-texto-suave);
 }
 
+.finalizar__lista {
+  display: grid;
+  gap: 0.5rem;
+  
+}
+
+.finalizar__total {
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+
+}
+
+.finalizar__total strong {
+  margin-left: 0.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  color: var(--cor-primaria);
+}
+
+/* Formulário centralizado */
+#finalizar-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.finalizar__campo {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.finalizar__campo label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+.finalizar__campo label span {
+  font-weight: 400;
+  color: var(--cor-texto-suave);
+}
+
+/* Inputs arredondados */
 .finalizar__campo input {
-    color: black;
+  width: 100%;
+  padding: 0.8rem 1.1rem;
+  border: 2px solid var(--cor-borda);
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: black;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.finalizar__campo input:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(168, 42, 28, 0.2);
+}
+
+/* Botão do WhatsApp: única parte com cor diferente, e mais pra baixo */
+.finalizar__enviar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 1.75rem;
+  padding: 0.95rem 1rem;
+  border-radius: 999px;
+  background-color: #25d366;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: var(--sombra);
+  transition: background-color var(--transicao), transform var(--transicao);
+}
+
+.finalizar__enviar svg {
+  font-size: 1.4rem;
+  margin-bottom: 1px;
+}
+
+.finalizar__enviar:hover,
+.finalizar__enviar:focus-visible {
+  background-color: #1ebe5a;
+  transform: translateY(-3px);
+}
+
+/* ===== TABLET / PC ===== */
+@media (min-width: 768px) {
+  .finalizar__bloco {
+    padding: 2rem 2.5rem 2.5rem;
+  }
 }

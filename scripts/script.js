@@ -256,13 +256,13 @@ boataoAdicionarRemover.forEach((btn) => {
         const item = btn.closest('.cardapio__item')
 
         if(btn.getAttribute('data-acao') === 'adicionar') {
-            adicionarPedido(item, btn)
+            adicionarPedido(item)
         }
 
         const quantidade = item.querySelector('.cardapio__qtd-num')
 
         if(btn.getAttribute('data-acao') === 'remover' && Number(quantidade.textContent) >= 1) {
-            removerPedido(item, btn)
+            removerPedido(item)
         }
 })})
 
@@ -420,11 +420,13 @@ function verificarProdutos(quantidade, nome) {
 }
 
 function proudtosSalvos(item, nome) {
+    
     const quantidadeSalva = localStorage.getItem(nome)
     const quantidade = item.querySelector('.cardapio__qtd-num')
     const contador = document.querySelectorAll('.contador')
 
     const totalCarrinho = localStorage.getItem('totalCarrinho')
+    
 
     if(quantidadeSalva !== null) {
         quantidade.textContent = quantidadeSalva
@@ -444,6 +446,8 @@ function proudtosSalvos(item, nome) {
         btnRemover.disabled = false
 
         carrinhoLista.appendChild(itemCopia)
+
+        console.log(itemCopia)
     }
 
     contador.forEach((event) => {
@@ -461,15 +465,17 @@ document.querySelector('#carrinho-total').textContent = totalCarrinho ?? '0.00'
 
 }
 
-// area finalizar 
+// finalizar
 
-const carrinhoFinalizar = document.querySelector('#carrinho-finalizar')
+        const carrinhoFinalizar = document.querySelector('#carrinho-finalizar')
 
-console.log(carrinhoFinalizar)
+        carrinhoFinalizar.addEventListener('click', () => {
+            if(carrinhoLista.children.length > 0) {
+                window.location.href = 'finalizar.html'
+            }
+        })
 
-carrinhoFinalizar.addEventListener('click', () => {
-    window.location.href = 'finalizar.html'
-})
+// index
 
 document.addEventListener('DOMContentLoaded', () => {
   const itens = document.querySelectorAll('.cardapio__categoria .cardapio__item')
