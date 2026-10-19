@@ -420,13 +420,12 @@ function verificarProdutos(quantidade, nome) {
 }
 
 function proudtosSalvos(item, nome) {
-    
+
     const quantidadeSalva = localStorage.getItem(nome)
     const quantidade = item.querySelector('.cardapio__qtd-num')
     const contador = document.querySelectorAll('.contador')
 
     const totalCarrinho = localStorage.getItem('totalCarrinho')
-    
 
     if(quantidadeSalva !== null) {
         quantidade.textContent = quantidadeSalva
@@ -446,8 +445,6 @@ function proudtosSalvos(item, nome) {
         btnRemover.disabled = false
 
         carrinhoLista.appendChild(itemCopia)
-
-        console.log(itemCopia)
     }
 
     contador.forEach((event) => {
