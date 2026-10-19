@@ -92,7 +92,7 @@ finalizarform.addEventListener('submit', (evento) => {
     `
 
     const mensagemCodificada = encodeURIComponent(mensagem)
-    const linkWhatsApp = `https://wa.me/NUMERO_REMOVIDO?text=${mensagemCodificada}`
+    const linkWhatsApp = `https://wa.me/38999999999?text=${mensagemCodificada}`
 
     window.open(linkWhatsApp, '_blank')
 })
