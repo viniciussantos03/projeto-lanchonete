@@ -27,6 +27,23 @@
   white-space: nowrap;
 }
 
+.finalizar__vazio {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 2rem);
+    max-width: 420px;
+    padding: 1.5rem;
+    text-align: center;
+    line-height: 1.5;
+    color: var(--cor-texto-suave);
+    background-color: var(--cor-secao);
+    border: 1px dashed var(--cor-primaria);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
 .finalizar__topo .finalizar__voltar {
   transform: translateY(-4px);
   font-size: 1.75rem;
@@ -161,6 +178,11 @@
 .finalizar__enviar:focus-visible {
   background-color: #1ebe5a;
   transform: translateY(-3px);
+}
+
+.finalizar__bloco[hidden],
+.finalizar__titulo[hidden] {
+    display: none !important;
 }
 
 /* ===== TABLET / PC ===== */

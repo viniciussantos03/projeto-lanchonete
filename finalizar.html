@@ -20,15 +20,19 @@
 </head>
 <body>
 
-  <main class="finalizar">
+  <main class="finalizar" id="finalizar-main">
 
     <!-- Topo: título e X pra voltar -->
     <div class="finalizar__topo">
       <h1 class="finalizar__titulo">Finalizar pedido</h1>
       <button class="finalizar__voltar" aria-label="Voltar">
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-      </button>
+    </button>
     </div>
+
+    <p class="finalizar__vazio" id="finalizar-vazio" hidden>
+        Seu carrinho está vazio! Escolha alguns lanches antes de finalizar o pedido.
+    </p>
 
     <!-- Resumo do pedido -->
     <section class="finalizar__bloco" aria-labelledby="resumo-titulo">
@@ -75,7 +79,7 @@
         Enviar pedido pelo WhatsApp
       </button>
     </form>
-
+    
   </main>
 
   <script src="scripts/finalizar.js"></script>
